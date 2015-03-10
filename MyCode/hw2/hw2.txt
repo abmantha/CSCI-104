@@ -1,0 +1,99 @@
+=============================
+| Name: Abhishek Mantha		|
+| Email: amantha@usc.edu	|
+| GitHub: abmantha		|
+| Date Submitted: 2/3/15	|
+| HW 2 				|
+=============================
+
+Problem 1 -- GitHub
+=============================
+	a) The status of README.md after cloning SampleRepo
+	   is an unmodified file. It is already living in the 
+	   SampleRepo repository. However, it has not been
+	   modified or changed.
+
+	b) The status of README.md is now a modified file. 
+	   By calling echo, we have directly modified the contents
+	   of README.md from the command line. The changes 
+	   to the file are now being tracked. The status of 
+	   fun_problems.txt is now an untracked file. We have 
+	   simply created the file in the repository. Because it
+	   is untracked, it is also unmodified. 
+
+	c) README.md and fun_problems.txt are now staged files
+	   ready to be committed, or recorded. 
+
+	d) README.md and fun_problems.txt have initially been committed 
+	   within the SampleRepo repository. They have both been
+	   effectively snapshotted in their current state. 
+	   Then, README.md becomes modified and is now not staged
+	   for the next commit. The same goes for fun_problems.txt.
+	   Both files have been modified since their commits and are 
+	   unstaged.
+
+	e) README.md is now staged for a commit. However, fun_problems.txt
+	   is not staged for a commit. Checking out causes us to check 
+	   out the index version of the filename specified as fun_problems.txt
+	   using the -- command. Essentially, we have discarded any changes 
+	   in the working directory to the original contents of the file. 
+	   fun_problems.txt is now empty. 
+
+	f) README.md has been staged from the previous command. However, now it 
+	   has been modified. If we commit at this point, we don't 
+	   have the line "Fancy git move." Instead, if we were to stage the
+	   file again, we can update the file to preserve the new line.
+	   We're basically looking at two different versions of the file. 
+	
+
+Problem 2 -- Review Material
+=============================
+	Completed!
+
+
+Problem 3 -- Linked Lists
+=============================
+	Solutions in llistdbl.h
+		     llistdbl.cpp
+
+
+Problem 4 -- Array Lists
+=============================
+	Solutions in alistint.h
+		     alistint.cpp
+
+
+Problem 5 -- Stacks
+=============================
+	Solutions in stackdbl.h
+		     stackdbl.cpp
+
+
+Problem 6 -- Stack Operation 
+	     Runtime Analysis
+=============================
+	The following functions: 
+		bool empty() const
+		void push(const double& val)
+		double const& top() const
+		void pop()
+	all effectively have worst-case runtimes of theta(1). The StackDbl class is implemented with the property that the head of the stack is at the 0th index. That is, whenever a new element is pushed onto the stack, it corresponds to being inserted at the 0th index of a linked list. Similarly, when an element is popped from a stack, it corresponds to being removed from the 0th index of a linked list. The same goes for calling top to get the top element of the stack; it simply corresponds to returning the value at the head of a linked list. 
+
+	For empty(): It corresponds to returning if a linked list is empty, which happens to take constant time as a simply boolean value is returned. It takes theta(1) time.
+
+	For push(): As we are effectively inserting at the 0th element of a linked list, there are only 2 cases that could arise when pushing an element to our stack. Either the stack, or linked list, is empty, or the stack, or linked list, has other values. Never are worrying about inserting a value at the end of the linked list and never are we worrying about inserting a value in the middle of a linked list. When a stack is empty and we push, we simply set the head and tail pointers of the list to point to the new element. When there are other values on the stack, we simply point the new value to the current head, and we update the head to point to the new value, which becomes the new head. This statements all take theta(1) time. 
+
+	For top(): When we call top, in our linked list implementation, we call the .get(0) method with loc equal to 0. Within this function, we pass 0 to another function -- getNodeAt(0) -- that returns a pointer to the element at loc. Now, when loc is 0, instead of executing the while loop within the function, we simply return temp which is equal to the head pointer because 0 is not greater than 0. This statement again takes theta(1) time. Even though it bubbles back up through the program, all statements involved in this function still take theta(1) time.
+
+	For pop(): The same explanation applies here as it did for push(). However, this time we are dealing with the remove function. We will always be removing from the 0th index, which will always take theta(1) time, given the simple nature of deleting an element and updating list pointers. The pop() function also takes theta(1) time. 
+
+	All four methods take theta(1) time. No where does the implementation slow down due to unnecessary executions given the nature of how the linked list object works. 
+
+
+Problem 7 -- Stacks and 
+	     Post-fix 
+	     Calculator
+=============================
+	Solutions in postfix.cpp
+		     stackdbl.h
+		     llistdbl.h
