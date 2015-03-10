@@ -1,2 +1,2 @@
 # SCodeReview
-Code Reviews with Frank Chen
+Code Reviews with Frank
